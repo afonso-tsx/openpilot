@@ -96,6 +96,9 @@ class Sidebar(Widget):
     # Background
     rl.draw_rectangle_rec(rect, rl.BLACK)
 
+    if not ui_state.started:
+      return
+
     self._draw_buttons(rect)
     self._draw_network_indicator(rect)
     self._draw_metrics(rect)
