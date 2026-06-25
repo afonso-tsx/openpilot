@@ -88,21 +88,8 @@ class HomeLayout(Widget):
 
     self.current_state = state
 
-  def _render(self, rect: rl.Rectangle):
-    current_time = time.monotonic()
-    if current_time - self.last_refresh >= REFRESH_INTERVAL:
-      self._refresh()
-      self.last_refresh = current_time
-
-    self._render_header()
-
-    # Render content based on current state
-    if self.current_state == HomeLayoutState.HOME:
-      self._render_home_content()
-    elif self.current_state == HomeLayoutState.UPDATE:
-      self._render_update_view()
-    elif self.current_state == HomeLayoutState.ALERTS:
-      self._render_alerts_view()
+  def _render(self, _):
+    return
 
   def _update_state(self):
     self.header_rect = rl.Rectangle(
